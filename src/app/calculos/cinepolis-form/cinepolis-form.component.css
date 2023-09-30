@@ -1,0 +1,16 @@
+.container
+{
+    display: block;
+    flex-direction: row;
+    margin: 3rem auto;
+}
+
+h1
+{
+    text-align: center;
+}
+
+.mat-card-header
+{
+    text-align: center;
+}

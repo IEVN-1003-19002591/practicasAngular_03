@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { OperasBasComponent } from './operas-bas/operas-bas.component';
@@ -25,7 +27,9 @@ import { CinepolisFormComponent } from './calculos/cinepolis-form/cinepolis-form
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

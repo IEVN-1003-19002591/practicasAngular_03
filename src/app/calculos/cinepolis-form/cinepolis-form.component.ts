@@ -21,7 +21,7 @@ export class CinepolisFormComponent
   
     let descuento = 0;
   
-    if (catBoletos >= 5) 
+    if (catBoletos >= 5 && catBoletos < 7) 
     {
       descuento = 0.15; 
     } 
@@ -30,10 +30,17 @@ export class CinepolisFormComponent
     {
       descuento = 0.10; 
     }
-  
+
+    else
+    {
+	      window.alert("La cantidad no debe exceder de 7 boletos \n \n" + "Cantidad de boletos: " + catBoletos);
+        return;
+    }
+
     const precioBoleto = 12.000;
   
     let valor = catBoletos * precioBoleto * catComprador; 
+
     if (descuento > 0) 
     {
       valor -= valor * descuento;
@@ -44,7 +51,7 @@ export class CinepolisFormComponent
       const descuentoTarjeta = 0.10; 
       valor -= valor * descuentoTarjeta;
     }
-  
+
     this.valor = valor;
     this.total = valor;
   }

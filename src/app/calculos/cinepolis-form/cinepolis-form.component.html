@@ -6,40 +6,56 @@
     <title>Cinepolis</title>
 </head>
 <body>
+    <br>
+    <img src="/assets/Logo.png" class="img">
     <div class="container">
-        <h1>Cinepolis</h1>
-        <mat-card>
+        <div class="form-section">
+          <mat-card>
             <mat-card-header>Entradas</mat-card-header>
             <mat-card-content>
-                <mat-label>Nombre: </mat-label>
-                <input matInput [(ngModel)]="nombre" type="text" name="nombre" id="nombre" placeholder="Nombre">
-                <mat-label>Cantidad de Compradores: </mat-label>
-                <input matInput [(ngModel)]="catComprador" type="number" name="catComprador" id="catComprador" placeholder="Compradores">
-                <mat-label>Tarjeta: </mat-label>
-                <mat-radio-group>
-                    <mat-radio-button value="Si">Si</mat-radio-button>
-                    <mat-radio-button value="No">No</mat-radio-button>
-                  </mat-radio-group>
-                <mat-label>Cantidad de Boletos: </mat-label>
-                <input matInput [(ngModel)]="catBoletos" type="text" name="catBoletos" id="catBoletos" placeholder="Boletos">
+              <mat-label>Nombre: </mat-label>
+              <input matInput [(ngModel)]="nombre" type="text" name="nombre" id="nombre" placeholder="Nombre">
+              <br><br>
+              <mat-label>Cantidad de Compradores: </mat-label>
+              <input matInput [(ngModel)]="catComprador" type="number" name="catComprador" id="catComprador" placeholder="Compradores">
+              <br><br>
+              <mat-label>Tarjeta: </mat-label>
+              <mat-radio-group [(ngModel)]="tarjeta">
+                <mat-radio-button value="Si">Si</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+              <br><br>
+              <mat-label>Cantidad de Boletos: </mat-label>
+              <input matInput [(ngModel)]="catBoletos" type="number" name="catBoletos" id="catBoletos" placeholder="Boletos">
             </mat-card-content>
-        <br>
+            <br><br>
+          </mat-card>
+        </div>
+      
+        <div class="result-section">
+          <mat-card>
             <mat-card-header>Salidas</mat-card-header>
             <mat-card-content>
-                <mat-label>Valor a Pagar: </mat-label>
-                <input matInput [(ngModel)]="valor" type="text" name="valor" id="valor" placeholder="Valor a Pagar">
+              <mat-label>Valor a Pagar: </mat-label>
+              <input matInput [(ngModel)]="valor" type="number" name="valor" id="valor" placeholder="Valor a Pagar">
             </mat-card-content>
+            <br>
+          </mat-card>
         <br>
+          <mat-card>
             <mat-card-header>Acciones</mat-card-header>
             <mat-card-actions>
-                    <button (click)="pagar()" mat-button color="primary">Procesar</button>
-                    <button mat-button color="danger" type="reset">Salir</button>
+              <button (click)="Pagar()" mat-button color="primary">Procesar</button>
+              <button mat-button color="danger" type="reset">Salir</button>
             </mat-card-actions>
             <br>
-            <mat-card-footer>
-                <h3>El total es: </h3>
-            </mat-card-footer>
-        </mat-card>
-    </div>
+          </mat-card>
+        </div>
+      </div>
+        <h3>Nombre del comprador es: {{ nombre }}</h3>
+        <h3>La cantidad de compradores es: {{ catComprador}}</h3>
+        <h3>La cantidad de boletos comprados es: {{ catBoletos}}</h3>
+        <h3>El total es: {{ total }}</h3>
+        <h3>Uso tarjeta: {{ tarjeta }}</h3>
 </body>
 </html>

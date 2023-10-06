@@ -18,41 +18,41 @@ export class CinepolisFormComponent
     const catBoletos = this.catBoletos;
     const catComprador = this.catComprador;
     const tarjeta = this.tarjeta === 'Si';
-  
-    let descuento = 0;
-  
-    if (catBoletos >= 5 && catBoletos < 7) 
-    {
-      descuento = 0.15; 
-    } 
-    
-    else if (catBoletos >= 3 && catBoletos <= 5) 
-    {
-      descuento = 0.10; 
-    }
-
-    else
-    {
-	      window.alert("La cantidad no debe exceder de 7 boletos \n \n" + "Cantidad de boletos: " + catBoletos);
-        return;
-    }
-
     const precioBoleto = 12.000;
   
-    let valor = catBoletos * precioBoleto * catComprador; 
-
-    if (descuento > 0) 
-    {
-      valor -= valor * descuento;
-    }
+    let descuento = 0;
+    let valor = catBoletos * precioBoleto * catComprador;
   
-    if (tarjeta) 
+    if (catComprador < 3 && (catBoletos + catComprador) > 7) 
     {
-      const descuentoTarjeta = 0.10; 
-      valor -= valor * descuentoTarjeta;
+      window.alert("La cantidad no debe exceder de 7 boletos en total si hay menos de 2 clientes.\n\nCantidad de boletos: " + catBoletos + "\nCantidad de compradores: " + catComprador);
+    } 
+    
+    else 
+    {
+      if (catBoletos >= 5 && catBoletos < 7) 
+      {
+        descuento = 0.15;
+      } 
+      
+      else if (catBoletos >= 3 && catBoletos <= 5) 
+      {
+        descuento = 0.10;
+      }
+  
+      if (descuento > 0) 
+      {
+        valor -= valor * descuento;
+      }
+  
+      if (tarjeta) 
+      {
+        const descuentoTarjeta = 0.10;
+        valor -= valor * descuentoTarjeta;
+      }
+  
+      this.valor = valor;
+      this.total = valor;
     }
-
-    this.valor = valor;
-    this.total = valor;
   }
 }

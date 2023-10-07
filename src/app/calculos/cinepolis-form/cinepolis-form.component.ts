@@ -62,8 +62,8 @@ export class CinepolisFormComponent
         valor -= valor * descuentoTarjeta;
       }
   
-      this.valor = valor;
-      this.total = valor;
+      this.valor = valor = parseFloat(valor.toFixed(2));
+      this.total = valor = parseFloat(valor.toFixed(2));
     }
   }
   
